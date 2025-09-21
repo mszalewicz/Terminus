@@ -1,6 +1,6 @@
 # Project specific
-db.sqlite
-
+db.sqlite*
+/logs
 ##############################################################################################
 
 # Compiled class file
