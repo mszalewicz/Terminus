@@ -66,8 +66,8 @@ bin/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
-.vscode/
-
 ### Mac OS ###
 .DS_Store
+
+### VS Code ###
+.vscode/
