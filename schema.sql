@@ -4,8 +4,9 @@ PRAGMA case_sensitive_like = ON;
 PRAGMA synchronous = FULL;
 PRAGMA temp_store = MEMORY;
 
-CREATE TABLE IF NOT EXISTS self (
-	name TEXT NOT NULL
+CREATE TABLE IF NOT EXISTS settings (
+	name TEXT NOT NULL,
+	version REAL NOT NULL
 ) STRICT;
 
 CREATE TABLE IF NOT EXISTS peers (

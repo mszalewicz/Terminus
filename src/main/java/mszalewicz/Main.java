@@ -10,19 +10,18 @@ import org.apache.logging.log4j.Logger;
 
 public class Main {
     private static final Logger logger = LogManager.getLogger(Main.class);
+    private static Database database;
+    private static final double appVersion = 0.5; // TODO: add mechanism to set application version during publishing
 
     static void main() {
         logger.info("Starting application...");
 
-        Database database = InitializeDatabase();
+        database = InitializeDatabase();
 
         if(database == null) {
             logger.info("Shutting down application - cannot create database.");
             System.exit(1);
         }
-
-        UUID uuid = UUID.randomUUID();
-        System.out.println("Random UUID: " + uuid.toString());
     }
 
     static Database InitializeDatabase() {
@@ -31,15 +30,16 @@ public class Main {
         Database database = null;
 
         try {
-            database = new Database("db.sqlite");
+            database = new Database("db.sqlite", appVersion);
         } catch (RuntimeException e) {
             logger.error("Error initializing database: ",  e);
-            return database;
+            return null;
         }
 
         try {
             var scheme = Files.readString(Path.of("schema.sql"));
             database.CreateTables(scheme);
+            database.GetAppName();
         } catch (IOException e){
             logger.error("Error reading schema.sql: ", e);
         } catch (RuntimeException e) {
