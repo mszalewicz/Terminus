@@ -12,11 +12,11 @@ public class Network {
 
     private Network() {}
 
-    public static synchronized void init(Database appDatabase) {
-            database = appDatabase;
+//    public static synchronized void init(Database appDatabase) {
+//            database = appDatabase;
+//        // TODO: broadcast app on the local network via mDNS/DNS‑SD
+//    }
 
-//            database.
-    }
 
 //   public static localApplicationInstances()  {
 //       try {

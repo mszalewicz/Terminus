@@ -5,7 +5,8 @@ PRAGMA synchronous = FULL;
 PRAGMA temp_store = MEMORY;
 
 CREATE TABLE IF NOT EXISTS settings (
-	name TEXT NOT NULL,
+	name TEXT,
+	id TEXT NOT NULL,
 	version REAL NOT NULL
 ) STRICT;
 
